@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Score from './components/Score/Score';
+import styles from './App.module.scss';
+import Picker from './components/Picker/Picker';
 
 function App() {
+  const [bonus, isBonus] = useState(false);
+
+  const handleClick = () => {
+    isBonus(!bonus);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.app}>
+      <Score bonus={bonus} />
+      <Picker bonus={bonus} />
+      <button className={styles.button} onClick={handleClick}>
+        ?
+      </button>
     </div>
   );
 }

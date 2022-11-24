@@ -1,0 +1,75 @@
+@import './Variables.module.scss';
+
+.background {
+  position: relative;
+  display: inline-block;
+  aspect-ratio: 1;
+  width: 200px;
+  border: none;
+  border-radius: 100%;
+  background-color: white;
+  box-shadow: inset 0px 10px rgb(220, 220, 220);
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  img {
+    height: 60%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.border {
+  aspect-ratio: 1;
+  height: 240px;
+  width: 240px;
+  display: inline-block;
+  border: none;
+  border-radius: 100%;
+}
+
+.yellow {
+  background: $yellow-gradient;
+  box-shadow: 0 10px rgba($yellow, 0.7);
+}
+
+.blue {
+  background: $blue-gradient;
+  box-shadow: 0 10px rgba($blue, 0.7);
+}
+
+.red {
+  background: $red-gradient;
+  box-shadow: 0 10px rgba($red, 0.7);
+}
+
+.violet {
+  background: $violet-gradient;
+  box-shadow: 0 10px rgba($violet, 0.7);
+}
+
+.cyan {
+  background: $cyan-gradient;
+  box-shadow: 0 10px rgba($cyan, 0.7);
+}
+
+.triangle {
+  margin: 0 auto;
+  position: relative;
+  aspect-ratio: 1;
+  height: 75vh;
+  max-width: 75vw;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bgTriangle {
+  position: absolute;
+  margin: auto auto;
+  width: 70%;
+  z-index: -2137;
+}
