@@ -32,8 +32,19 @@
   }
 }
 
-.active {
-  transform: translate(0, 20%) scale(1.5);
+.activeSC {
+  transform: translate(-130%, 40%);
+  scale: 1.5;
+}
+
+.activeP {
+  transform: translate(-10%, 40%);
+  scale: 1.5;
+}
+
+.activeR {
+  transform: translate(-70%, -50%);
+  scale: 1.5;
 }
 
 .hidden {

@@ -27,7 +27,7 @@ const ElementStandard = () => {
       <div className={styles.top}>
         <div
           onClick={() => asd('paper')}
-          className={`${chosen === 'paper' ? styles.active : null} ${
+          className={`${chosen === 'paper' ? styles.activeP : null} ${
             chosen !== 'paper' && hide ? styles.hidden : null
           } ${styles.container}`}
         >
@@ -39,7 +39,7 @@ const ElementStandard = () => {
         </div>
         <div
           onClick={() => asd('scissors')}
-          className={`${chosen === 'scissors' ? styles.active : null} ${
+          className={`${chosen === 'scissors' ? styles.activeSC : null} ${
             chosen !== 'scissors' && hide ? styles.hidden : null
           } ${styles.container}`}
         >
@@ -53,7 +53,7 @@ const ElementStandard = () => {
       <div className={styles.bottom}>
         <div
           onClick={() => asd('rock')}
-          className={`${chosen === 'rock' ? styles.active : null} ${
+          className={`${chosen === 'rock' ? styles.activeR : null} ${
             chosen !== 'rock' && hide ? styles.hidden : null
           } ${styles.container}`}
         >
