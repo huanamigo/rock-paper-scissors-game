@@ -1,3 +1,5 @@
 rps from frontend mentor
 
-wip
+state-menaged rock paper scissors game
+
+built using react 18.2

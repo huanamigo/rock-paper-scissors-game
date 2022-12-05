@@ -13,6 +13,10 @@ const Score = (props) => {
           src={props.bonus ? scoreTextBonus : scoreText}
           alt=""
         />
+        <div className={styles.score}>
+          <p>SCORE</p>
+          <p className={styles.userScore}>{props.userScore}</p>
+        </div>
       </div>
     </div>
   );

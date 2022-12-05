@@ -24,31 +24,37 @@
 .container {
   aspect-ratio: 1;
   height: 70%;
-  transition: all 100ms ease-in;
+  transition: all 300ms ease-in;
 
   &:active {
     filter: brightness(0.8);
-    transform: translate(0, 2%);
   }
 }
 
 .activeSC {
-  transform: translate(-130%, 40%);
+  transform: translate(-190%, 45%);
   scale: 1.5;
 }
 
 .activeP {
-  transform: translate(-10%, 40%);
+  transform: translate(-70%, 45%);
   scale: 1.5;
 }
 
 .activeR {
-  transform: translate(-70%, -50%);
+  transform: translate(-130%, -50%);
+  scale: 1.5;
+}
+
+.activeHouse {
+  position: absolute;
+  transform: translate(130%, -50%);
   scale: 1.5;
 }
 
 .hidden {
   opacity: 0;
+  scale: 0;
 }
 
 .border {
@@ -110,9 +116,53 @@
 
   display: flex;
   flex-direction: column;
+  transition: all 100ms ease-out;
 }
 
 .bgTriangle {
   margin: auto auto;
   width: 70%;
+}
+
+.playAgain {
+  display: block;
+  position: absolute;
+  font-size: 60px;
+  bottom: 250px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 200ms ease-out;
+
+  text-align: center;
+}
+
+.playAgainBtn {
+  padding: 15px 50px;
+  border-radius: 20px;
+  font-size: 40px;
+
+  transition: all 200ms ease-out;
+
+  &:hover {
+    transform: translate(0, 3%);
+    color: red;
+    filter: brightness(0.9);
+  }
+}
+
+.p {
+  text-transform: uppercase;
+  position: absolute;
+  font-weight: 600;
+  font-size: 30px;
+  top: 20px;
+  text-align: center;
+}
+
+.userPick {
+  left: -230px;
+}
+
+.housePick {
+  right: -255px;
 }

@@ -8,13 +8,72 @@ import BackgroundTriangle from './images/bg-triangle.svg';
 
 // I'm really sorry about these classes
 
-const ElementStandard = () => {
+const ElementStandard = (props) => {
   const [chosen, choose] = useState('');
   const [hide, toHide] = useState(false);
+  const [houseStyle, changeHouseStyle] = useState([null, null]);
+  const [winMessage, changeMessage] = useState('');
 
   const asd = (id) => {
+    if (chosen) return;
     choose(id);
+    props.pick();
     toHide(true);
+    winCheck(id);
+    setHouseBorderImg(props.housePick);
+  };
+
+  const winCheck = (id) => {
+    const win = () => {
+      props.addScore(props.userScore + 1);
+      changeMessage('YOU WON');
+    };
+    const loose = () => {
+      props.addScore(props.userScore - 1);
+      changeMessage('YOU LOST');
+    };
+
+    const tie = () => {
+      changeMessage('TIE');
+    };
+
+    if (id === props.housePick) {
+      tie();
+      return;
+    }
+    if (id === 'rock') {
+      if (props.housePick === 'scissors') {
+        win();
+      } else {
+        loose();
+      }
+    }
+
+    if (id === 'paper') {
+      if (props.housePick === 'rock') {
+        win();
+      } else {
+        loose();
+      }
+    }
+
+    if (id === 'scissors') {
+      if (props.housePick === 'paper') {
+        win();
+      } else {
+        loose();
+      }
+    }
+  };
+
+  const setHouseBorderImg = (pick) => {
+    if (pick === 'rock') {
+      changeHouseStyle([styles.red, IconRock]);
+    } else if (pick === 'paper') {
+      changeHouseStyle([styles.blue, IconPaper]);
+    } else if (pick === 'scissors') {
+      changeHouseStyle([styles.yellow, IconScissors]);
+    }
   };
 
   return (
@@ -63,15 +122,52 @@ const ElementStandard = () => {
             </div>
           </div>
         </div>
+        <div
+          className={`${styles.activeHouse} ${
+            chosen !== '' && hide ? null : styles.hidden
+          } ${styles.container}`}
+        >
+          <div className={`${styles.border} ${houseStyle[0]}`}>
+            <div className={styles.background}>
+              <img src={houseStyle[1]} alt="" />
+            </div>
+          </div>
+        </div>
       </div>
-      <button
-        onClick={() => {
-          choose('');
-          toHide(false);
-        }}
+
+      <p
+        className={`${styles.p} ${styles.userPick} ${
+          chosen !== '' && hide ? null : styles.hidden
+        }`}
       >
-        asdas
-      </button>
+        You picked:
+      </p>
+      <p
+        className={`${styles.p} ${styles.housePick} ${
+          chosen !== '' && hide ? null : styles.hidden
+        }`}
+      >
+        House picked:
+      </p>
+
+      <div
+        className={`${styles.playAgain} ${
+          chosen !== '' && hide ? null : styles.hidden
+        }`}
+      >
+        <p>{winMessage}</p>
+        <button
+          onClick={() => {
+            choose('');
+            toHide(false);
+          }}
+          className={`${styles.playAgainBtn} ${
+            chosen !== '' && hide ? null : styles.hidden
+          }`}
+        >
+          Play Again
+        </button>
+      </div>
     </div>
   );
 };
